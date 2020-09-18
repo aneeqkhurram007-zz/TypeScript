@@ -42,11 +42,41 @@ function add(num1: number, num2: number = 10): number {
 
 console.log(add(5));
 // console.log(add(5));
-function fullName(pers: { firstName: string; lastName: String }) {
+
+interface Person {
+  firstName: string;
+  lastName: string;
+}
+function fullName(pers: Person) {
   console.log(`${pers.firstName} ${pers.lastName}`);
 }
 let p = {
   firstName: "Aneeq",
-  lastName: "Khurram",
+  lastName: "Sheikh",
 };
 fullName(p);
+//Class
+class Employee {
+  employeeName: string;
+  constructor(name: string) {
+    this.employeeName = name;
+  }
+  greet() {
+    console.log(`Good Morning ${this.employeeName}`);
+  }
+}
+let employee1 = new Employee("Aneeq");
+console.log(employee1.employeeName);
+employee1.greet;
+class Manager extends Employee {
+  constructor(managerName: string) {
+    super(managerName);
+  }
+  delegateWork() {
+    console.log(`Manager delegating tasks`);
+  }
+}
+let m1 = new Manager("Bruce");
+m1.delegateWork;
+m1.greet;
+m1.employeeName;
